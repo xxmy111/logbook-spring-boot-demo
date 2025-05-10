@@ -30,3 +30,51 @@ This project provides the following core functionalities:
 **Multi-Format Log Appender:**  
 - Create a custom log appender that dynamically selects log formats (e.g., JSON, plain text) based on configuration.  
 - **Advantage:** Supports multiple log formats within the same system.
+
+## 2.3 Flexible Log Filtering
+
+- **Regular Expression-based Filtering:**
+  - Use regular expressions to match URLs, request parameters, or response content for dynamic log filtering.
+  - **Advantages:** More precise filtering rules, suitable for complex scenarios.
+
+- **Dynamic Rule Engine:**
+  - Integrate a rule engine (such as Drools or EasyRules) to define filtering conditions via rule files or dynamic loading.
+  - **Advantages:** Supports more complex logic and combinations of conditions.
+
+- **Distributed Filtering Rules:**
+  - In distributed systems, centrally manage log filtering rules and synchronize them to all service instances.
+  - **Advantages:** Unified rules, easier to maintain.
+
+## 2.4 Dynamic Configuration Adjustment
+
+- **Configuration Center Support:**
+  - Integrate with a configuration center (such as Spring Cloud Config, Apollo, or Nacos) to dynamically load log-related configurations.
+  - **Advantages:** Centralized management, supports real-time updates.
+
+- **Database-based Configuration Updates:**
+  - Store log configurations in a database and modify them in real-time through a management interface.
+  - **Advantages:** Easy to operate, suitable for operations teams.
+
+- **Hot Update Mechanism:**
+  - Utilize Spring Boot’s `@ConfigurationProperties` and hot-reloading mechanism to monitor changes in configuration files and apply them in real-time.
+  - **Advantages:** Simple implementation, suitable for small projects.
+
+## 2.5 Performance Optimization
+
+- **Batch Log Writing:**
+  - Temporarily store log data in an in-memory queue and periodically write it in batches to disk or external storage.
+  - **Advantages:** Reduces I/O operations, improves write efficiency.
+
+- **Log Compression Storage:**
+  - Compress log data using algorithms like GZIP when writing to log files.
+  - **Advantages:** Saves storage space, suitable for large-scale log data.
+
+## 2.6 High Extensibility
+
+- **Support for Multiple Storage Targets:**
+  - Provide interfaces to write logs to files, databases, message queues (such as Kafka, RabbitMQ), or cloud storage.
+  - **Advantages:** Adapts to different storage needs.
+
+- **Log Flow Based on Message Middleware:**
+  - Send log data as messages to middleware (such as Kafka) for processing by independent services for log storage or analysis.
+  - **Advantages:** Supports high-concurrency log processing.
