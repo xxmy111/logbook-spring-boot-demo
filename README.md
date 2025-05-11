@@ -1,7 +1,14 @@
 
+
 <!-- by 朱淼佳 -->
 
 ## 2. Feature Overview  
+
+=======
+<!-- by 朱淼佳 -->
+
+## 2. Feature Overview  
+
 
 This project provides the following core functionalities:  
 
@@ -78,6 +85,7 @@ This project provides the following core functionalities:
 
 - **Log Flow Based on Message Middleware:**
   - Send log data as messages to middleware (such as Kafka) for processing by independent services for log storage or analysis.
+
   - **Advantages:** Supports high-concurrency log processing.
 
   
@@ -119,3 +127,6 @@ You will see the text "helloworld" on the webpage.
 You can also clearly see the sample information in the backend:
 ![alt text](img/helloworld.png)
 ---
+=======
+  - **Advantages:** Supports high-concurrency log processing.
+
