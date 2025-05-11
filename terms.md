@@ -32,4 +32,20 @@
 | 中文术语         | 英文术语                     | 定义说明                                                                 |
 |------------------|-----------------------------|--------------------------------------------------------------------------|
 | 扩展接口         | Extension Interface         | 提供给开发者实现自定义功能的编程接口(如Hook/Plugin机制)                       |
+
 | 监控分析平台     | Monitoring Platform         | 用于日志分析和性能监控的第三方系统(如ELK/Prometheus/Grafana等)                |
+
+
+<!-- by 唐文广 -->
+# 术语词汇表 (Glossary of Terms)
+
+| 中文术语 (Chinese Term) | 英文术语 (English Term) |
+|--------------------------|--------------------------|
+| 克隆                     | Clone                   |
+| Gradle                  | Gradle                   |
+| 构建                     | Build                   |
+| Spring Boot             | Spring Boot Framework    |
+| Postman                 | Postman                  |
+=======
+| 监控分析平台     | Monitoring Platform         | 用于日志分析和性能监控的第三方系统(如ELK/Prometheus/Grafana等)                |
+
