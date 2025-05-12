@@ -154,3 +154,38 @@ spring:
   application:
     name: logbook-demo     # Application name
 ```
+### 6.5 Log Configuration
+• logbook: the root node of the log configuration, including all log-related settings.
+• format: Set the log output format to JSON, which is convenient for program analysis and integration with other systems.
+• filters: define filter rules, including path matching and sensitive information shielding.
+• pattern: The matching path is /api/secure/*, which means that all paths starting with /api/secure/ will be filtered.
+• mask: set to true to shield the sensitive information in the matching path.
+• log-level: Set the log level to info, and record log information above the info level.
+### Code Display
+```logbook:
+  format: json            # Log output format: json or text
+  filters:
+    pattern: /api/secure/*  # Filter rule: match path
+    mask: true              # Mask sensitive information for matches
+  log-level: info          # Log level
+```
+### 6.6 Service and application configuration
+• server: service monitoring configuration.
+• port: Set the service listening port to 8080, which is used to receive client requests.
+• spring: Spring framework-related configuration.
+• application: application configuration.
+• name: Set the application name to logbook-demo, which is used to identify and manage applications in the Spring ecosystem.
+Advantages of using Visual software
+When writing and managing YAML files in Visual software (such as Visual Studio Code), you can make full use of the following functions:
+1. Code highlighting: Different configuration items and values are displayed in different colours for easy distinction and understanding.
+2. Intelligent Tips: Automatically prompt common configuration items and values to reduce manual input errors.
+3. Structured view: provides an overview of the file structure, which is convenient to quickly locate specific configuration items.
+4. Code folding: supports folding and expanding nested configurations to improve code readability.
+Through these functions, the writing and maintenance of YAML configuration files can be completed efficiently and accurately to ensure that the configuration meets business needs.
+### Code Display
+```server:
+  port: 8080               # Service listening port
+spring:
+  application:
+    name: logbook-demo     # Application name
+```
