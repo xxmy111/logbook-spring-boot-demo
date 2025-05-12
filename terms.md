@@ -31,6 +31,10 @@
 
 <!-- by 朱淼佳 -->
 
+
+
+
+=======
 # 技术术语表 (Glossary)
 
 ## 核心概念
@@ -67,6 +71,29 @@
 | 监控分析平台     | Monitoring Platform         | 用于日志分析和性能监控的第三方系统(如ELK/Prometheus/Grafana等)                |
 
 
+<!-- by 莫永启 -->
+# 专业术语词汇
+|  中文术语                  | 英文术语                         | 说明                                                              |
+|---------------------------|---------------------------------|--------------------------------------------------------------------------|
+| 操作系统                  | Operating System (OS)            | Windows、macOS、Linux 等系统软件，管理硬件与软件资源。                 |
+| JDK                       | Java Development Kit             | Java 开发工具包，含编译器、运行时环境（需 JDK 11+）。                   |
+| Gradle                    | Gradle                          | 自动化构建工具，支持依赖管理和多项目构建（需 3.3+ 版本）。               |
+| 网络环境                  | Network Environment             | 互联网连接条件，需稳定网络用于下载依赖（国内用户可能需要 VPN）。         |
+| 梯子                      | VPN (Virtual Private Network)    | 网络代理工具，用于访问国际服务（如 GitHub）。                            |
+| gradlew                   | Gradle Wrapper                  | Gradle 的包装脚本，用于隔离构建环境（`gradlew run` 命令）。             |
+| 依赖                      | Dependencies                    | 项目所依赖的外部库或模块，通过 Gradle 自动下载。                         |
+| 稳定的互联网连接           | Stable Internet Connection       | 网络需具备持续连通性，避免构建或运行时中断。                             |
+
+---
+
+### 关键说明：
+1. **版本要求**：JDK 和 Gradle 的版本号（如 JDK 11+、Gradle 3.3+）属于具体配置，未列入术语表。
+2. **工具命令**：`gradlew run` 是操作命令，术语表中仅保留核心工具名（Gradle Wrapper）。
+3. **网络工具**：“梯子”为中文俚语，对应英文技术术语为 **VPN**，括号内补充全称。
+
+此词汇表覆盖项目运行的核心环境依赖，中英文对照便于技术文档阅读与协作。
+
+
 <!-- by 唐文广 -->
 # 术语词汇表 (Glossary of Terms)
 
@@ -79,4 +106,30 @@
 | Postman                 | Postman                  |
 =======
 | 监控分析平台     | Monitoring Platform         | 用于日志分析和性能监控的第三方系统(如ELK/Prometheus/Grafana等)                |
+
+<!--by 伍师杰-->
+### 术语
+Modular architecture    模块化架构
+HTTP requests/responses   HTTP请求/响应
+Logbook framework   Logbook框架
+Request parameter validation   请求参数验证
+ Regular expressions       正则表达式
+Hot configuration update   热配置更新
+Interface contracts    接口协议
+API version management   API版本管理
+Circuit breaker   断路器
+Maintainability   可维护性
+
+<!--by谢鹏飞-->
+1.中文术语:开发环境-->英文术语:Development environment
+2.中文术语:测试用例-->英文术语Test cases
+3.中文术语:依赖关系-->英文术语:Dependencies
+4.中文术语:执行测试-->英文术语:execute tests
+5.中文术语:测试方法-->英文术语:Test method
+6.中文术语:包和方法-->英文术语:Package and method
+7.中文术语:有效载荷-->英文术语:Payload
+8.中文术语:传递请求-->英文术语:Transmit the request
+9.中文术语:传输-->英文术语:Transmission
+10.中文术语:响应数据-->英文术语:Response data
+
 

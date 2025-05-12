@@ -1,3 +1,4 @@
+
 <!-- by 尤淇 -->
 Logbook Spring Boot Demo Project Introduction
 
@@ -56,12 +57,9 @@ When a problem occurs in the system, developers can quickly locate the root caus
 Communication Audit under Data Compliance Requirements
 In the context of today's data security and privacy protection, many industries have strict requirements for data compliance. The Logbook Spring Boot Demo project, through detailed recording of HTTP requests and responses, can help developers and enterprises meet data compliance requirements.
 
-
-
-
 =======
-<!-- by 朱淼佳 -->
 
+<!-- by 朱淼佳 -->
 ## 2. Feature Overview  
 
 
@@ -73,7 +71,7 @@ This project provides the following core functionalities:
 - Log request paths, methods, parameters, and response data within the interceptor.  
 - **Advantage:** Decouples business logic from logging logic, enabling flexible logging.  
 
-**Using Spring’s `HandlerInterceptor`:**  
+**Using Spring’s HandlerInterceptor`:**  
 - Implement the `HandlerInterceptor` interface and log requests/responses in `preHandle` and `postHandle`.  
 - **Advantage:** Provides a more direct way to intercept and process HTTP requests.  
 
@@ -143,6 +141,25 @@ This project provides the following core functionalities:
 
   - **Advantages:** Supports high-concurrency log processing.
 
+<!-- by 莫永启 -->
+## 3. Environmental requirements
+To run this project, the following environmental requirements must be met:
+
+### 3.1 Operating System
+- Supports Windows, macOS, and major Linux distributions.
+
+### 3.2 Java Runtime Environment
+- It is recommended to use JDK 11 or higher.
+- You can check if the JDK is installed correctly by using the following command:```bashjava -version```
+
+### 3.3 Build Tool
+- This project uses Gradle for building, and Gradle version 3.3 or higher must be installed.
+- Check the Gradle version:```bashgradle -v```
+
+### 3.4 Network Environment
+- A stable internet connection is required to download dependencies and run services.
+- Domestic users may need to use VPNs or other network tools due to GitHub's services located overseas.
+- When running the project:```bashgradlew runDownloading https://services.gradle.org/distributions/gradle-3.3-bin.zip requires an internet connection.```---
   
 <!-- by 唐文广 -->
 ## 4. Quick Start
@@ -182,6 +199,160 @@ You will see the text "helloworld" on the webpage.
 You can also clearly see the sample information in the backend:
 ![alt text](img/helloworld.png)
 ---
-=======
-  - **Advantages:** Supports high-concurrency log processing.
 
+<!-- by 伍师杰 -->
+### 5. 
+Project ArchitectureThis project adopts a modular architecture design, following the principles of high cohesion and low coupling to ensure the system's maintainability and scalability. The architecture is mainly divided into the following core modules:
+
+### 5.1
+Logging ModuleImplementation: 
+
+Full link interception and logging of HTTP requests/responses based on the Logbook framework.Core Functions:
+- Support for multiple log format configurations such as JSON and text.
+- Provide refined filtering rules for request/response content.
+- Support asynchronous log writing to avoid blocking the main business process.
+- Extendable log output channels (files, ELK, databases, etc.).
+
+### 5.2 
+Configuration ModuleImplementation: 
+
+Based on the Spring Boot configuration system, combined with Nacos for dynamic configuration.Core Functions:
+- Centrally manage application configurations via application.yml.
+- Support multi-environment configuration isolation (dev/test/prod).
+- Implement hot configuration update mechanism, with key parameter modifications taking effect in real-time.
+- Provide configuration version management and rollback capabilities.
+
+### 5.3 Security ModuleImplementation: 
+Based on custom filters and annotations for sensitive data processing.Core Functions:
+- Automatically identify and mask sensitive information such as ID numbers and phone numbers.- Support custom desensitization rules with regular expressions.
+- Provide logging audit and tracking capabilities.
+- Comply with data security regulations such as GDPR.
+
+### 5.4 Controller ModuleImplementation: 
+Spring MVC RESTful style API design.Core Functions:
+- Clear API version management (/v1/api/...).
+- Unified exception handling mechanism.- Complete Swagger API documentation.
+- Automatic validation of request parameters (JSR-303).Module Interaction Design:
+- Each module interacts through clearly defined interface contracts: 
+- Achieve module decoupling through Dependency Injection (DI).
+- Set circuit breaker downgrade mechanisms at critical interaction points.  
+- Use DTO objects for communication between modules.
+- Implement asynchronous event notification through Spring Event.This architecture design supports horizontal scaling. Subsequent enhancements can be achieved through:
+- Introducing a modular loading mechanism (OSGi).
+- Adding gRPC internal communication protocols.
+- Supporting plugin-based functionality extensions.
+  - **Advantages:** Supports high-concurrency log processing.
+  
+<!-- by 陆发欣 -->
+## 6.Configuration Description
+### 6.1 Code highlighting
+Visual software will highlight different keywords, values, etc. according to the syntax characteristics of YAML files. For example, "logbook", "format", "filters", etc. will be identified as keys and displayed in a specific colour, while "json", "/api/secure/*", "true", "info" and other values will be presented in another colour, which can make me We can more intuitively divide the configuration items and their corresponding values, which is easy to understand and modify.
+### 6.2 intellisense
+During the writing process, the Visual software will provide intelligent prompts. For example, when we enter "logbook:" and press the Enter key, the software may automatically prompt our common sub-configuration items, such as "format", "filters", etc., to help us complete the code writing quickly and accurately, and reduce the lead due to spelling errors or forgetting configuration items. To the error.
+### Code Display
+```logbook:
+  format: json            # Log output format: json or text
+  filters:
+    pattern: /api/secure/*  # Filter rule: match path
+    mask: true              # Mask sensitive information for matches
+  log-level: info          # Log level
+```
+### 6.3 Structured View
+Visual software usually provides a structured view panel where we can clearly see the overall structure of YAML files. For example, it can be seen that "server" and "spring" are configuration items of the same level, while "port" is a sub-item of "server", "application" is a sub-item of "spring", and "name" is " Application" sub-items, etc. This structured view can help us quickly locate a specific configuration part, which is convenient for modification and viewing.
+### 6.4 Code Folding and Unfolding
+Code folding and expansion: For YAML configurations with multi-level nesting, Visual software supports code folding and expansion functions. For example, we can fold the "spring" configuration item and its sub-items to display only the top-level key "spring". When we need to view or modify the "application" and "name" inside, we can expand the corresponding part. This can effectively reduce visual interference and improve the readability and maintainability of the code when processing complex YAML files.
+### Code Display
+```server:
+  port: 8080               # Service listening port
+spring:
+  application:
+    name: logbook-demo     # Application name
+```
+### 6.5 Log Configuration
+• logbook: the root node of the log configuration, including all log-related settings.
+• format: Set the log output format to JSON, which is convenient for program analysis and integration with other systems.
+• filters: define filter rules, including path matching and sensitive information shielding.
+• pattern: The matching path is /api/secure/*, which means that all paths starting with /api/secure/ will be filtered.
+• mask: set to true to shield the sensitive information in the matching path.
+• log-level: Set the log level to info, and record log information above the info level.
+### Code Display
+```logbook:
+  format: json            # Log output format: json or text
+  filters:
+    pattern: /api/secure/*  # Filter rule: match path
+    mask: true              # Mask sensitive information for matches
+  log-level: info          # Log level
+```
+### 6.6 Service and application configuration
+• server: service monitoring configuration.
+• port: Set the service listening port to 8080, which is used to receive client requests.
+• spring: Spring framework-related configuration.
+• application: application configuration.
+• name: Set the application name to logbook-demo, which is used to identify and manage applications in the Spring ecosystem.
+Advantages of using Visual software
+When writing and managing YAML files in Visual software (such as Visual Studio Code), you can make full use of the following functions:
+1. Code highlighting: Different configuration items and values are displayed in different colours for easy distinction and understanding.
+2. Intelligent Tips: Automatically prompt common configuration items and values to reduce manual input errors.
+3. Structured view: provides an overview of the file structure, which is convenient to quickly locate specific configuration items.
+4. Code folding: supports folding and expanding nested configurations to improve code readability.
+Through these functions, the writing and maintenance of YAML configuration files can be completed efficiently and accurately to ensure that the configuration meets business needs.
+### Code Display
+```server:
+  port: 8080               # Service listening port
+spring:
+  application:
+    name: logbook-demo     # Application name
+
+```
+
+<!--by 谢鹏飞-->
+### 7. Testing Methods
+- This project includes various testing methods to ensure the correctness and stability of its functions:
+### 7.1 JUnit Unit Testing
+- This project is a Gradle-based project.
+- Unit tests covering core functionalities are written using JUnit.
+- Dependencies are added in the build.gradle file.
+- JUnit 4 dependency:
+- dependencies {
+- testImplementation 'junit:junit:4.13.2'
+- }
+- There are two ways to run tests:
+- Run the following command to execute all test methods:
+- bash
+- gradle test
+- Run a specific test method:
+- Locate the package and method of the class.
+- Example:
+- gradle test --tests "com.example.LogbookSpringBootDemoApplicationTest.testAdd"
+
+### 7.2 Interface Testing
+### 7.2.1 Testing with Postman
+- Postman is a powerful API testing tool that supports sending various types of HTTP requests and viewing responses.
+- Open the Postman application.
+- Create a GET request or other types of requests (e.g., GET, POST, PUT, DELETE).
+- Example request:
+- Execute a GET request in the project.
+- Enter the URL: http://localhost:8080/echo/{message}
+- Replace {message} with the desired message.
+- Click the Send button to send the request.
+- After a successful Send, you can view the response data.
+- Verify whether the response data meets the expectations.
+
+### 7.2.2 Testing with Swagger Documentation
+- Add dependencies in the build.gradle file:
+- dependencies {
+- implementation 'org.springdoc:springdoc-openapi-ui:1.6.11'
+- }
+- After starting the project, the Swagger documentation will be automatically generated.
+- Access the Swagger UI page via the browser at the URL: http://localhost:8080/swagger-ui.html
+- Select the interface to be tested, fill in the parameters, and click the Try it out button to send the request.
+- Example request:
+- Enter the URL: http://localhost:8080/echo/{message}
+- Replace {message} with the desired message.
+- After sending the request, you can view the response information.
+- Verify whether the response data meets the expectations.
+- Advantages of Swagger documentation testing:
+- Compared to Postman, it allows direct interface testing in the browser.
+
+
+=======
