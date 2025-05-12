@@ -1,10 +1,3 @@
-Logbook Spring Boot Starter demo
-================================
-
-This is a simple Spring Boot application to test 1.1.1 version of Zalando's Logbook Spring Boot Starter.
-
-The problem in test is the exception thrown when trying to access `/favicon.ico` path.
-
 <!--by 伍师杰-->
 ### 5. 项目架构
 本项目采用模块化架构设计，遵循高内聚、低耦合的原则，确保系统的可维护性和可扩展性。架构主要分为以下核心模块：
