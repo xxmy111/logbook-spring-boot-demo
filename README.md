@@ -86,6 +86,25 @@ This project provides the following core functionalities:
 
   - **Advantages:** Supports high-concurrency log processing.
 
+<!-- by 莫永启 -->
+## 3. Environmental requirements
+To run this project, the following environmental requirements must be met:
+
+### 3.1 Operating System
+- Supports Windows, macOS, and major Linux distributions.
+
+### 3.2 Java Runtime Environment
+- It is recommended to use JDK 11 or higher.
+- You can check if the JDK is installed correctly by using the following command:```bashjava -version```
+
+### 3.3 Build Tool
+- This project uses Gradle for building, and Gradle version 3.3 or higher must be installed.
+- Check the Gradle version:```bashgradle -v```
+
+### 3.4 Network Environment
+- A stable internet connection is required to download dependencies and run services.
+- Domestic users may need to use VPNs or other network tools due to GitHub's services located overseas.
+- When running the project:```bashgradlew runDownloading https://services.gradle.org/distributions/gradle-3.3-bin.zip requires an internet connection.```---
   
 <!-- by 唐文广 -->
 ## 4. Quick Start
