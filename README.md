@@ -1,80 +1,50 @@
-<!-- by 朱淼佳 -->
 
-## 2. Feature Overview  
+<!--by XiePengFei-->
+7. Testing Methods
+- This project includes various testing methods to ensure the correctness and stability of its functions:
+7.1 JUnit Unit Testing
+- This project is a Gradle-based project.
+- Unit tests covering core functionalities are written using JUnit.
+- Dependencies are added in the build.gradle file.
+- JUnit 4 dependency:
+- dependencies {
+- testImplementation 'junit:junit:4.13.2'
+- }
+- There are two ways to run tests:
+- Run the following command to execute all test methods:
+- bash
+- gradle test
+- Run a specific test method:
+- Locate the package and method of the class.
+- Example:
+- gradle test --tests "com.example.LogbookSpringBootDemoApplicationTest.testAdd"
 
-This project provides the following core functionalities:  
+7.2 Interface Testing
+7.2.1 Testing with Postman
+- Postman is a powerful API testing tool that supports sending various types of HTTP requests and viewing responses.
+- Open the Postman application.
+- Create a GET request or other types of requests (e.g., GET, POST, PUT, DELETE).
+- Example request:
+- Execute a GET request in the project.
+- Enter the URL: http://localhost:8080/echo/{message}
+- Replace {message} with the desired message.
+- Click the Send button to send the request.
+- After a successful Send, you can view the response data.
+- Verify whether the response data meets the expectations.
 
-### 2.1 HTTP Request & Response Logging  
-**Based on Spring AOP:**  
-- Create an interceptor to capture all HTTP requests and responses.  
-- Log request paths, methods, parameters, and response data within the interceptor.  
-- **Advantage:** Decouples business logic from logging logic, enabling flexible logging.  
+7.2.2 Testing with Swagger Documentation
+- Add dependencies in the build.gradle file:
+- dependencies {
+- implementation 'org.springdoc:springdoc-openapi-ui:1.6.11'
+- }
+- After starting the project, the Swagger documentation will be automatically generated.
+- Access the Swagger UI page via the browser at the URL: http://localhost:8080/swagger-ui.html
+- Select the interface to be tested, fill in the parameters, and click the Try it out button to send the request.
+- Example request:
+- Enter the URL: http://localhost:8080/echo/{message}
+- Replace {message} with the desired message.
+- After sending the request, you can view the response information.
+- Verify whether the response data meets the expectations.
+- Advantages of Swagger documentation testing:
+- Compared to Postman, it allows direct interface testing in the browser.
 
-**Using Spring’s `HandlerInterceptor`:**  
-- Implement the `HandlerInterceptor` interface and log requests/responses in `preHandle` and `postHandle`.  
-- **Advantage:** Provides a more direct way to intercept and process HTTP requests.  
-
-**Using Third-Party Libraries (e.g., Logbook):**  
-- Integrate Logbook to automatically log HTTP request/response data.  
-- Simple configuration with support for various extensions.  
-
-### 2.2 Support for Multiple Log Formats  
-**Based on Logging Frameworks (e.g., Logback or Log4j):**  
-- Configure formats via `logback.xml` (Logback) or YAML/JSON (Log4j) to define different log output templates.  
-- **Advantage:** Easy to use, supports multiple output formats.  
-
-**Using Log Adapters/Converters:**  
-- Implement a log adapter to convert log content into different formats (e.g., JSON, XML, or custom formats).  
-- **Advantage:** Highly flexible, allowing customized output.  
-
-**Multi-Format Log Appender:**  
-- Create a custom log appender that dynamically selects log formats (e.g., JSON, plain text) based on configuration.  
-- **Advantage:** Supports multiple log formats within the same system.
-
-## 2.3 Flexible Log Filtering
-
-- **Regular Expression-based Filtering:**
-  - Use regular expressions to match URLs, request parameters, or response content for dynamic log filtering.
-  - **Advantages:** More precise filtering rules, suitable for complex scenarios.
-
-- **Dynamic Rule Engine:**
-  - Integrate a rule engine (such as Drools or EasyRules) to define filtering conditions via rule files or dynamic loading.
-  - **Advantages:** Supports more complex logic and combinations of conditions.
-
-- **Distributed Filtering Rules:**
-  - In distributed systems, centrally manage log filtering rules and synchronize them to all service instances.
-  - **Advantages:** Unified rules, easier to maintain.
-
-## 2.4 Dynamic Configuration Adjustment
-
-- **Configuration Center Support:**
-  - Integrate with a configuration center (such as Spring Cloud Config, Apollo, or Nacos) to dynamically load log-related configurations.
-  - **Advantages:** Centralized management, supports real-time updates.
-
-- **Database-based Configuration Updates:**
-  - Store log configurations in a database and modify them in real-time through a management interface.
-  - **Advantages:** Easy to operate, suitable for operations teams.
-
-- **Hot Update Mechanism:**
-  - Utilize Spring Boot’s `@ConfigurationProperties` and hot-reloading mechanism to monitor changes in configuration files and apply them in real-time.
-  - **Advantages:** Simple implementation, suitable for small projects.
-
-## 2.5 Performance Optimization
-
-- **Batch Log Writing:**
-  - Temporarily store log data in an in-memory queue and periodically write it in batches to disk or external storage.
-  - **Advantages:** Reduces I/O operations, improves write efficiency.
-
-- **Log Compression Storage:**
-  - Compress log data using algorithms like GZIP when writing to log files.
-  - **Advantages:** Saves storage space, suitable for large-scale log data.
-
-## 2.6 High Extensibility
-
-- **Support for Multiple Storage Targets:**
-  - Provide interfaces to write logs to files, databases, message queues (such as Kafka, RabbitMQ), or cloud storage.
-  - **Advantages:** Adapts to different storage needs.
-
-- **Log Flow Based on Message Middleware:**
-  - Send log data as messages to middleware (such as Kafka) for processing by independent services for log storage or analysis.
-  - **Advantages:** Supports high-concurrency log processing.
