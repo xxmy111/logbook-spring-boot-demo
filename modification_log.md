@@ -9,8 +9,7 @@
 - **命令更改**：
   - AI使用了 `mvn clean install`。
   - 用户更改为 `gradlew build`。
-
-
+  
 ## 3. 启动服务部分
 - **启动命令更改**：从 Gradle 的 `gradlew bootRun` 改为 Maven 的 `mvn spring-boot:run` 实际我们使用的启动命令应为 `gradlew bootRun` 。
 
@@ -21,3 +20,11 @@
 - **简化内容**：
   - AI删除了具体的访问路径示例（如 `/echo/helloworld`）。
   - AI省略了网页和后台显示的截图描述。
+
+
+<!--by伍师杰-->
+### 
+1.询问了AI此项目运用了什么项目框架，分别是什么模块，它们的作用是什么？
+2.问了AI这些模块的运行方式
+3.询问AI这段文字还有什么可以完善的？
+4.让AI将这段文字进行了翻译
