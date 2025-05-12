@@ -1,3 +1,36 @@
+<!-- by 尤淇 -->
+## 术语词汇
+项目相关
+​​API​​：应用程序接口，用于不同软件组件间的交互。
+​​Logbook​​：用于记录HTTP请求和响应的日志工具。
+系统架构相关
+​​Software system architecture​​：软件系统的整体结构。
+​​Microservices architecture​​：将应用分解为一组小型服务的架构。
+性能与问题排查相关
+​​Observability​​：系统可被观察和理解的能力。
+​​Debugging capabilities​​：开发者定位和修复错误的能力。
+​​Performance bottlenecks​​：限制性能提升的系统环节。
+​​Anomalies​​：系统中的异常行为。
+数据处理相关
+​​JSON​​：轻量级数据交换格式。
+​​XML​​：可扩展标记语言。
+​​Plain text​​：纯文本格式。
+网络通信相关
+​​HTTP​​：超文本传输协议。
+​​Request/Response​​：客户端与服务器间的请求和响应。
+​​Request URL/Method/Parameters/Headers​​：请求的URL、方法、参数和头部信息。
+​​Response status code/Time​​：响应的状态码和处理时间。
+安全与合规相关
+​​Sensitive information​​：敏感数据，如密码、Token。
+​​Data compliance​​：数据合规性要求。
+分布式系统相关
+​​Distributed systems​​：由多个独立节点组成的系统。
+日志处理相关
+​​API call logs​​：API调用日志。
+​​Log formatting/filtering/recording/monitoring​​：日志的格式化、过滤、记录和监控。
+
+<!-- by 朱淼佳 -->
+
 
 
 
