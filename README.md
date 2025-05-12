@@ -129,4 +129,26 @@ You can also clearly see the sample information in the backend:
 ---
 =======
   - **Advantages:** Supports high-concurrency log processing.
-
+<!-- by 陆发欣 -->
+## 6Configuration Description
+### 6.1 Code highlighting
+Visual software will highlight different keywords, values, etc. according to the syntax characteristics of YAML files. For example, "logbook", "format", "filters", etc. will be identified as keys and displayed in a specific colour, while "json", "/api/secure/*", "true", "info" and other values will be presented in another colour, which can make me We can more intuitively divide the configuration items and their corresponding values, which is easy to understand and modify.
+### 6.2 intellisense
+During the writing process, the Visual software will provide intelligent prompts. For example, when we enter "logbook:" and press the Enter key, the software may automatically prompt our common sub-configuration items, such as "format", "filters", etc., to help us complete the code writing quickly and accurately, and reduce the lead due to spelling errors or forgetting configuration items. To the error.
+### Code Display
+```logbook:
+  format: json            # Log output format: json or text
+  filters:
+    pattern: /api/secure/*  # Filter rule: match path
+    mask: true              # Mask sensitive information for matches
+  log-level: info          # Log level
+```
+### 6.3 Structured View
+Visual software usually provides a structured view panel where we can clearly see the overall structure of YAML files. For example, it can be seen that "server" and "spring" are configuration items of the same level, while "port" is a sub-item of "server", "application" is a sub-item of "spring", and "name" is " Application" sub-items, etc. This structured view can help us quickly locate a specific configuration part, which is convenient for modification and viewing.
+### Code Display
+```server:
+  port: 8080               # Service listening port
+spring:
+  application:
+    name: logbook-demo     # Application name
+```
