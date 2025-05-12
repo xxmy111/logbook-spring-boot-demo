@@ -130,7 +130,7 @@ You can also clearly see the sample information in the backend:
 =======
   - **Advantages:** Supports high-concurrency log processing.
 <!-- by 陆发欣 -->
-## 6Configuration Description
+## 6.Configuration Description
 ### 6.1 Code highlighting
 Visual software will highlight different keywords, values, etc. according to the syntax characteristics of YAML files. For example, "logbook", "format", "filters", etc. will be identified as keys and displayed in a specific colour, while "json", "/api/secure/*", "true", "info" and other values will be presented in another colour, which can make me We can more intuitively divide the configuration items and their corresponding values, which is easy to understand and modify.
 ### 6.2 intellisense
