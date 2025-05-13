@@ -92,22 +92,132 @@ This project provides the following core functionalities:
 ## 3. Environmental requirements
 To run this project, the following environmental requirements must be met:
 
-### 3.1 Operating System
-- Supports Windows, macOS, and major Linux distributions.
+# 3.1 Operating System
+This system supports mainstream operating system platforms. The specific compatibility details are as follows:
 
-### 3.2 Java Runtime Environment
-- It is recommended to use JDK 11 or higher.
-- You can check if the JDK is installed correctly by using the following command:```bashjava -version```
+### 3.1.1 Windows System
+- **Supported Versions**: Windows 10 (1903 or later updates), Windows 11 (all editions)
+- **Environment Requirements**: 64-bit operating system must be enabled. It is recommended to disable real-time antivirus scanning (to avoid interfering with the build process).
+- **Special Configuration**: It is recommended to use the Windows Subsystem for Linux (WSL2) environment for development and debugging. This can be installed via **Control Panel → Programs and Features → Turn Windows features on or off**.
 
-### 3.3 Build Tool
-- This project uses Gradle for building, and Gradle version 3.3 or higher must be installed.
-- Check the Gradle version:```bashgradle -v```
+### 3.1.2 macOS System
+- **Supported Versions**: macOS Catalina (10.15) or later
+- **Environment Configuration**: Xcode Command Line Tools must be installed (run `xcode-select --install` in the terminal).
+- **Permission Settings**: It is recommended to set read and write permissions for the project directory (`chmod -R 755 project_dir`).
 
-### 3.4 Network Environment
-- A stable internet connection is required to download dependencies and run services.
-- Domestic users may need to use VPNs or other network tools due to GitHub's services located overseas.
-- When running the project:```bashgradlew runDownloading https://services.gradle.org/distributions/gradle-3.3-bin.zip requires an internet connection.```---
+### 3.1.3 Linux Distributions
+- **Mainstream Support**: Ubuntu 20.04 LTS/22.04 LTS, Debian 11+/12+, CentOS 8+/Rocky Linux 8+, Fedora 34+
+- **Dependency Installation**:
+  ```bash
+  # Ubuntu/Debian Systems
+  sudo apt-get install build-essential unzip curl
+
+  # CentOS/Rocky Linux Systems
+  sudo dnf groupinstall "Development Tools"
+  sudo dnf install unzip curl
+  ```
+- **Kernel Requirement**: It is recommended to use kernel version 5.4 or higher (check with `uname -r`).
+
+# 3.2 Java Runtime Environment
+
+### 3.2.1 Version Requirements
+- It is recommended to use **Java Development Kit (JDK) 11 or higher**, with long-term support (LTS) versions (such as OpenJDK 11/17/21) being preferred.
+
+**Version Comparison**:
+| Version    | Support Period      | Key Features               | Recommended Scenarios |
+|------------|---------------------|----------------------------|-----------------------|
+| JDK 11 LTS | Until September 2026 | HTTP/2 support, ZGC garbage collection | Production deployments |
+| JDK 17 LTS | Until September 2029 | Sealed classes, virtual threads | Development with new features |
+
+### 3.2.2 Installation and Verification
+- **Installation Guide**:
+  - **Official Download**: Obtain the appropriate package from the [Java Official Website](https://www.oracle.com/java/technologies/downloads/) or [OpenJDK Official Website](https://adoptium.net/).
+  - **Package Manager Installation**:
+    ```bash
+    # Ubuntu Systems
+    sudo apt install openjdk-11-jdk
+
+    # macOS Systems (Homebrew)
+    brew install openjdk@11
+    ```
+- **Verification Method**:
+  ```bash
+  java -version
+  # Example of correct output: openjdk 11.0.19 2023-10-17
+  ```
+- **Environment Configuration**:
+  - The JDK installation path must be added to the system PATH variable (e.g., configure in **Advanced System Settings → Environment Variables** for Windows systems).
+  - It is recommended to specify the JDK path via the `JAVA_HOME` environment variable (for recognition by build tools).
+
+# 3.3 Build Tool
+
+### 3.3.1 Gradle Environment Requirements
+- **Version Requirement**: Gradle 3.3 or higher must be installed. Version 7.0+ is recommended for optimal performance.
+- **Feature Advantages**:
+  - Flexible build scripts based on Groovy/Kotlin DSL
+  - Incremental Build support for improved compilation efficiency
+  - Built-in dependency management system (supports Maven/Gradle repositories)
+
+### 3.3.2 Installation and Upgrade
+- **Manual Installation**:
+  - **Download Location**: [Gradle Official Download Page](https://gradle.org/releases/)
+  - **Installation Steps**:
+    ```bash
+    # Unzip the installation package
+    unzip gradle-7.6-bin.zip -d /opt/gradle
+
+    # Configure environment variables
+    echo "export PATH=/opt/gradle/gradle-7.6/bin:\$PATH" >> ~/.bashrc
+    source ~/.bashrc
+    ```
+- **Version Check**:
+  ```bash
+  gradle -v
+  # The correct output should include the Gradle version and JVM information
+  ```
+- **Gradle Wrapper Usage**:
+  - The project includes Gradle Wrapper scripts (`gradlew`/`gradlew.bat`). Use these scripts preferentially.
+  - The first run will automatically download the Gradle version specified by the project (3.3+) to the local cache (`~/.gradle/wrapper/dists/`).
+  - **Advantages**: Avoid manual Gradle version management and ensure team environment consistency.
+
+# 3.4 Network Environment
+
+### 3.4.1 Basic Network Requirements
+- **Connection Requirements**: A stable internet connection of 100 Mbps or higher is required. A wired network is recommended for dependency downloads.
+- **Port Requirements**: Ports 80 (HTTP), 443 (HTTPS), and 8081 (Gradle repository proxy) must be open.
+
+### 3.4.2 Optimization for Domestic Environments
+- **GitHub Access**:
+  - Due to GitHub servers being located overseas, access from China may experience latency or connectivity issues.
+  - **Solutions**:
+    - Use legal network acceleration tools (complying with relevant laws and regulations).
+    - Configure Git proxy:
+      ```bash
+      git config --global http.proxy http://127.0.0.1:1080
+      git config --global https.proxy https://127.0.0.1:1080
+      ```
+- **Dependency Download Acceleration**:
+  - Configure domestic mirror sources (add to `build.gradle` or `settings.gradle`):
+    ```groovy
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        mavenCentral()
+    }
+    ```
+- **Gradle Wrapper Optimization**:
+  ```bash
+  # Manually download the Gradle distribution to local
+  wget https://services.gradle.org/distributions/gradle-3.3-bin.zip -P ~/.gradle/wrapper/dists/
+  ```
+
+### 3.4.3 Offline Environment Configuration
+For environments without internet access, the following must be downloaded in advance:
+- The corresponding Gradle distribution version (placed in the `gradle/wrapper/` directory).
+- All JAR dependencies required by the project (cached via `gradle offline --configuration compileClasspath`).
+
+**Offline Execution Command**:./gradlew run --offline
   
+
 <!-- by 唐文广 -->
 ## 4. Quick Start
 Warm reminder: You need to complete the environment configuration in order to deploy this project. This project requires JDK version 1.8 or higher and Gradle version 3.3 or higher.
@@ -148,6 +258,8 @@ You can also clearly see the sample information in the backend:
 ---
 =======
   - **Advantages:** Supports high-concurrency log processing.
+
+  
 <!-- by 陆发欣 -->
 ## 6.Configuration Description
 ### 6.1 Code highlighting
