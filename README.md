@@ -214,7 +214,6 @@ This system supports mainstream operating system platforms. The specific compati
 For environments without internet access, the following must be downloaded in advance:
 - The corresponding Gradle distribution version (placed in the `gradle/wrapper/` directory).
 - All JAR dependencies required by the project (cached via `gradle offline --configuration compileClasspath`).
-
 **Offline Execution Command**:./gradlew run --offline
   
 
@@ -259,7 +258,7 @@ You can also clearly see the sample information in the backend:
 =======
   - **Advantages:** Supports high-concurrency log processing.
 
-  
+
 <!-- by 陆发欣 -->
 ## 6.Configuration Description
 ### 6.1 Code highlighting
