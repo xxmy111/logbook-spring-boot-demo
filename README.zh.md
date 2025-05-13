@@ -248,6 +248,57 @@ gradlew bootRun
 增加gRPC内部通信协议
 支持插件化功能扩展
 
+<!--by 陆发欣-->
+## 6.配置说明
+### 6.1 代码拓展亮点
+可视化软件会根据 YAML 文件的语法特征高亮显示不同的关键字、值等。例如，“logbook”、“format”、“filters”等会被标识为键，并以特定的颜色显示，而“json”、“/api/secure/*”、“true”、“info”等值会以另一种颜色呈现，这可以让我更直观地划分出配置项及其对应的值，便于理解和修改。
+
+### 6.2 智能感知
+在编写过程中，Visual 软件将提供智能提示。例如，当我们输入 logbook：“ 并按下 Enter 键时，软件可能会自动提示我们常见的子配置项，如 ”format“、”filters“ 等，帮助我们快速准确地完成代码编写，减少因拼写错误或忘记配置项而导致的领先。到错误。
+
+### 代码显示：
+  format: json            # Log output format: json or text
+  filters:
+    pattern: /api/secure/*  # Filter rule: match path
+    mask: true              # Mask sensitive information for matches
+  log-level: info          # Log level
+
+### 6.3 结构化视图
+可视化软件通常会提供结构化的视图面板，我们可以在其中清楚地看到 YAML 文件的整体结构。例如，可以看出 “server” 和 “spring” 是同级别的配置项，而 “port” 是 “server” 的子项，“application” 是 “spring” 的子项，“name” 是 “Application” 的子项，等等。这种结构化的视图可以帮助我们快速定位到具体的配置部分，方便修改和查看。
+
+### 6.4 代码折叠和展开
+代码折叠和扩展：对于多级嵌套的 YAML 配置，Visual 软件支持代码折叠和扩展功能。例如，我们可以折叠 “spring” 配置项及其子项，只显示顶级键 “spring”。当我们需要查看或修改里面的 “application” 和 “name” 时，我们可以展开相应的部分。这样可以有效减少视觉干扰，提高处理复杂 YAML 文件时代码的可读性和可维护性。
+
+### 代码显示：
+  port: 8080               # Service listening port
+spring:
+  application:
+    name: logbook-demo     # Application name
+
+### 6.5 日志配置
+• logbook：日志配置的根节点，包括所有与日志相关的设置。 • format：将日志输出格式设置为 JSON，方便程序分析及与其他系统集成。 • 过滤器：定义过滤器规则，包括路径匹配和敏感信息屏蔽。 • pattern：匹配路径为 /api/secure/*，这意味着将筛选所有以 /api/secure/ 开头的路径。 • mask：设置为 true 以屏蔽匹配路径中的敏感信息。 • log-level：将日志级别设置为 info，并将日志信息记录在 info 级别以上。
+
+### 代码显示：
+  format: json            # Log output format: json or text
+  filters:
+    pattern: /api/secure/*  # Filter rule: match path
+    mask: true              # Mask sensitive information for matches
+  log-level: info          # Log level
+
+### 6.6 服务和应用程序配置
+• server：服务监控配置。 • port：设置服务监听端口为 8080，用于接收客户端请求。 • spring：Spring 框架相关配置。 • application：应用程序配置。 • name：设置应用名称为 logbook-demo，用于识别和管理 Spring 生态中的应用。 使用 Visual 软件的优势 在 Visual 软件（如 Visual Studio Code）中编写和管理 YAML 文件时，您可以充分利用以下功能：
+
+代码扩展亮点：不同的配置项和值以不同的颜色显示，便于区分和理解。
+智能提示：自动提示常用配置项和值，减少手动输入错误。
+结构化视图：提供文件结构概览，方便快速定位具体配置项。
+代码折叠：支持折叠和扩展嵌套配置，以提高代码可读性。 通过这些功能，可以高效、准确地完成 YAML 配置文件的编写和维护，确保配置满足业务需求。
+
+### 代码显示：
+  port: 8080               # Service listening port
+spring:
+  application:
+    name: logbook-demo     # Application name
+
 
 <!-- by 谢鹏飞 -->
 ## 7. 测试方法
