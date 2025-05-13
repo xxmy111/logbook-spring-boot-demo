@@ -463,5 +463,28 @@ spring:
 - Advantages of Swagger documentation testing:
 - Compared to Postman, it allows direct interface testing in the browser.
 
+<!--by 李焕伟 -->
+# Contributing to the Project
 
+## 8.1 Fork the Repository
+- Click the Fork button on GitHub to copy the project to your account.
+
+## 8.2 Clone the Code
+- Clone the forked repository to your local machine:
+
+## bash
+- git clone https://github.com/<your-username>/logbook-spring-boot-demo.git
+
+- 8.3 Create a Branch
+- Create a new branch for your modifications:git checkout -b feature/<feature-name>
+
+- 8.4 Commit Changes
+- Ensure that your code style complies with the standards and that unit tests pass before - committing your code:git add .
+- git commit -m "Add <feature-name>"
+- git push origin feature/<feature-name>
+- 8.5 Create a Pull Request
+- Initiate a PR on GitHub, describing your modifications and their significance. The project maintainers will review and merge your changes.
+- 8.6 Participate in Discussions
+- Feel free to submit issues in the Issues section or participate in existing discussions.
+- We hope this README provides a clear and comprehensive guide for your project! If further adjustments or additions are needed, please let us know!
 =======

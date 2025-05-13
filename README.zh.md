@@ -459,3 +459,31 @@ spring:
 - Swagger文档测试的优点:
 - 相比于Postman测试工具,它可直接在浏览器进行接口测试
 
+<!--by 李焕伟 -->
+## 8.1 Fork 仓库
+- 点击 GitHub 上的 Fork 按钮，将项目复制到您的账户。
+
+- 8.2 克隆代码
+- 将 Fork 的仓库克隆到本地：
+
+- bash
+- git clone https://github.com/<your-username>/logbook-spring-boot-demo.git
+- 8.3 创建分支
+- 为您的修改创建新分支：
+
+- bash
+- git checkout -b feature/<feature-name>
+- 8.4 提交修改
+- 请确保代码风格符合规范，并通过单元测试后提交代码：
+
+- bash
+- git add .
+- git commit -m "Add <feature-name>"
+- git push origin feature/<feature-name>
+- 8.5 创建 Pull Request
+- 在 GitHub 上发起 PR，描述您的修改内容及其意义。项目维护者将进行审查并合并。
+
+- 8.6 参与讨论
+- 欢迎在 Issues 区提交问题，或参与现有讨论。
+
+- 希望这份 README 能为您的项目提供一个清晰全面的说明！如果需要进一步调整或补充，请告诉我！
