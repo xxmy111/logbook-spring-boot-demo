@@ -271,13 +271,13 @@ format: json            # Log output format: json or text
 ### 6.4 代码折叠和展开
 代码折叠和扩展：对于多级嵌套的 YAML 配置，Visual 软件支持代码折叠和扩展功能。例如，我们可以折叠 “spring” 配置项及其子项，只显示顶级键 “spring”。当我们需要查看或修改里面的 “application” 和 “name” 时，我们可以展开相应的部分。这样可以有效减少视觉干扰，提高处理复杂 YAML 文件时代码的可读性和可维护性。
 
-### 代码显示：
-  ```
-  port: 8080               # Service listening port
+### 代码显示:
+```
+port: 8080               # Service listening port
 spring:
   application:
     name: logbook-demo     # Application name
-    ```
+```
 
 ### 6.5 日志配置
 • logbook：日志配置的根节点，包括所有与日志相关的设置。 • format：将日志输出格式设置为 JSON，方便程序分析及与其他系统集成。 • 过滤器：定义过滤器规则，包括路径匹配和敏感信息屏蔽。 • pattern：匹配路径为 /api/secure/*，这意味着将筛选所有以 /api/secure/ 开头的路径。 • mask：设置为 true 以屏蔽匹配路径中的敏感信息。 • log-level：将日志级别设置为 info，并将日志信息记录在 info 级别以上。
